@@ -159,8 +159,18 @@ MonoBehaviour:
   jumpHoldForce: 1
   jumpHoldDuration: 0.15
   isJumping: 0
+  isOnGround: 1
+  coyoteDuration: 0.1
+  leftFootOffset: -0.4
+  rightFootOffset: 0.275
+  groundOffset: 0.85
+  groundDistance: 0.15
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
   horizontal: 0
   jumpHeld: 0
+  jumpStarted: 0
 --- !u!114 &908841733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,7 +488,7 @@ GameObject:
   - component: {fileID: 2002394623}
   - component: {fileID: 2002394622}
   - component: {fileID: 2002394621}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
