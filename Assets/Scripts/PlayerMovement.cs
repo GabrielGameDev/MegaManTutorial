@@ -24,7 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.2f;
     public LayerMask groundLayer;
 
-    private int direction = 1;
+    [HideInInspector]
+    public int direction = 1;
     public float horizontal;
     public bool jumpHeld;
     public bool jumpStarted;
