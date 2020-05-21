@@ -31,11 +31,13 @@ public class PlayerMovement : MonoBehaviour
     public bool jumpStarted;
 
     private Rigidbody2D rb;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();        
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
             if(!isJumping)
                 isOnGround = true;
         }
+
+        animator.SetBool("OnGround", isOnGround);
     }
     void GroundMovement()
     {
@@ -80,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
         {
             coyoteTime = Time.time + coyoteDuration;
         }
+
+        animator.SetFloat("Speed", Mathf.Abs(xVelocity));
     }
 
     void AirMovement()

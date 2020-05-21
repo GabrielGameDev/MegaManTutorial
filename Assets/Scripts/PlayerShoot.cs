@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerShoot : MonoBehaviour
 {
-
+    public Transform shotSpawner;
     public Rigidbody2D shot;
     public float shotSpeed = 15;
     public float fireRate = 0.15f;
@@ -16,11 +16,13 @@ public class PlayerShoot : MonoBehaviour
     private float nextFire;
     private InputAction.CallbackContext shootPhase;
     private PlayerMovement playerMovement;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,11 +50,15 @@ public class PlayerShoot : MonoBehaviour
         if (Time.time < nextFire)
             return;
 
+        animator.SetTrigger("Shoot");
+
         nextFire = Time.time + fireRate;
-        Rigidbody2D newShot = Instantiate(shot, transform.position, Quaternion.identity);
+        Rigidbody2D newShot = Instantiate(shot, shotSpawner.position, Quaternion.identity);
         newShot.velocity = Vector2.right * shotSpeed * playerMovement.direction;
 
         newShot.transform.localScale *= charging;
         charging = 1;
+
+        
     }
 }
