@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 840561479898172929}
   - component: {fileID: 840561479898172928}
   - component: {fileID: 840561479898172935}
+  - component: {fileID: -1033671185584150524}
   m_Layer: 10
   m_Name: Mole
   m_TagString: Untagged
@@ -158,3 +159,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 1}
+--- !u!114 &-1033671185584150524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840561479898172934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffe90cc2108cfa41ae566d67887b551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+  invincibleTime: 0.1
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFinishDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
