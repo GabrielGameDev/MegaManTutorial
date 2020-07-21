@@ -4,30 +4,43 @@ using UnityEngine;
 
 public class PlayerHealth : Damageable
 {
-
     private int defaultLayer;
 
-    public override void Death()
-    {
-        Debug.Log("Morreu");
-    }
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         base.Start();
         defaultLayer = gameObject.layer;
     }
 
-    public void SetInvincible(bool state)
+    public override void Death()
     {
-        if (state)
+        if (LevelManager.instance.checkPoint)
         {
-            gameObject.layer = LayerMask.NameToLayer("Invencible");
+            Debug.Log("Checkpoint");
+            LevelManager.instance.Restart();
+            Respawn();
         }
         else
         {
-            gameObject.layer = defaultLayer;
+            SceneController.instance.RestartScene();
         }
+
+        
     }
+
+    public void SetInvencible(bool state)
+    {
+        if (state)
+        {
+            UiManager.instance.UpdateHealthBar(currentHealth);
+            gameObject.layer = LayerMask.NameToLayer("Invencible");
+        }            
+        else
+            gameObject.layer = defaultLayer;
+    }
+
+    
+    
+
+
 }

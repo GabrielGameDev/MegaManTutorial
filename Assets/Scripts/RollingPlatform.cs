@@ -79,4 +79,9 @@ public class RollingPlatform : MonoBehaviour
             }
         }
     }
+
+    public void Clean()
+    {
+        rbs.Clear();
+    }
 }

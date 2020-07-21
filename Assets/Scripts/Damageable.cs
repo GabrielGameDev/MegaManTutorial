@@ -5,46 +5,48 @@ using UnityEngine.Events;
 
 public abstract class Damageable : MonoBehaviour
 {
-    public int maxHealth;
-    public int currentHealth;
+    public float currentHealth;
+    public float maxHealth;
 
-    public float invincibleTime;
-
-    public UnityEvent OnDamage, OnFinishDamage, OnDeath;
+    public float invencibleTime = 0.1f;
 
     private bool canTakeDamage = true;
 
-    private SpriteRenderer spriteRenderer;
-    private Color defaultColor;
+    public UnityEvent OnDamage;
+    public UnityEvent FinishDamage;
+    public UnityEvent OnDeath;
 
-    // Start is called before the first frame update
+    private SpriteRenderer spriteRenderer;
+
     protected void Start()
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        defaultColor = spriteRenderer.color;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         if (!canTakeDamage)
             return;
-
         canTakeDamage = false;
         currentHealth -= amount;
         OnDamage.Invoke();
-        StartCoroutine(TakingDamage());
+        
         if(currentHealth <= 0)
         {
             OnDeath.Invoke();
             Death();
+            return;
         }
+
+        StartCoroutine(BlinkSprite());
     }
 
-    IEnumerator TakingDamage()
+    IEnumerator BlinkSprite()
     {
         float timer = 0;
-        while (timer < invincibleTime)
+        Color defaultColor = spriteRenderer.color;
+        while(timer < invencibleTime)
         {
             spriteRenderer.color = Color.clear;
             yield return new WaitForSeconds(0.05f);
@@ -55,8 +57,17 @@ public abstract class Damageable : MonoBehaviour
 
         spriteRenderer.color = defaultColor;
         canTakeDamage = true;
-        OnFinishDamage.Invoke();
-    }
+        FinishDamage.Invoke();
+    }   
 
     public abstract void Death();
+
+    public void Respawn()
+    {
+        Debug.Log("Respawn");
+        currentHealth = maxHealth;
+        canTakeDamage = true;
+        TakeDamage(0);
+    }
+
 }

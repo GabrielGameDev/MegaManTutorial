@@ -141,11 +141,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 840561479898172934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41ea563cb29ede4abda58e439feed2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 93d79767d6468eb448500f1591d8109b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  destroyOnDamage: 0
+  currentHealth: 0
+  maxHealth: 4
+  invencibleTime: 0.1
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  FinishDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  explosion: {fileID: 0}
 --- !u!114 &840561479898172935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,18 +180,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 840561479898172934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ffe90cc2108cfa41ae566d67887b551, type: 3}
+  m_Script: {fileID: 11500000, guid: cbada70b39ef8644bb1fda12c806a930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
-  currentHealth: 0
-  invincibleTime: 0.1
-  OnDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  OnFinishDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
+  damage: 2
+  destroyOnDamage: 0

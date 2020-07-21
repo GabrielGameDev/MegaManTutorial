@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/ButtonRemapScreen.unity
+    path: 
     guid: 6d897b03f2c393542b51d405e97f9f92
   - enabled: 0
-    path: Assets/Scenes/NewInput.unity
+    path: 
     guid: 37961ba4d27bd46428d20c2ffe403dc3
   - enabled: 1
     path: Assets/Scenes/Intro.unity
@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fase1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Fase2.unity
+    guid: 96f6563e523b34643b83e5662d01821d
   - enabled: 1
     path: Assets/Scenes/GetEquipped.unity
     guid: 616a764fe1f944242b94d674193c90c3

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5006281245594410210}
   - component: {fileID: 8159404834912135834}
   - component: {fileID: 341950923880958325}
-  m_Layer: 0
+  - component: {fileID: -2540623937928799703}
+  m_Layer: 9
   m_Name: Player Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,8 +141,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6512683645311449519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41ea563cb29ede4abda58e439feed2d, type: 3}
+  m_Script: {fileID: 11500000, guid: cbada70b39ef8644bb1fda12c806a930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
   destroyOnDamage: 1
+--- !u!114 &-2540623937928799703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512683645311449519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1c1d7bc8c4ae24c89157d32e5f2629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
